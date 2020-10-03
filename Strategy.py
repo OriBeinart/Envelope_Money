@@ -10,10 +10,10 @@ class BaseStrategy ():
         """
 
     def play(self):
-        while ((self.continue_strategy)and(self.count<100)):
+        while ((self.continue_strategy)and(self.count<len(self.envelopes))):
             self.perform_strategy(self.envelopes[self.count])
         if (self.chosen_envelope == None):
-            self.chosen_envelope = self.envelopes[self.count]
+            self.chosen_envelope = self.envelopes[self.count-1]
         return self.chosen_envelope
     """Activates perform_strategy() for each envelope in the array until one is chosen.
         :return: The chosen envelope (self.chosen_envelope)
