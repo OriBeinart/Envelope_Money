@@ -38,4 +38,25 @@ class BaseStrategy ():
         print("Base strategy - you open the envelopes one after the other and stop whenever you feel like it")
     """Prints out an explaination about the method"""
 
+class N_max_strategy(BaseStrategy):
+    def __init__(self, envelope_arr, N = 3):
+        super().__init__(envelope_arr)
+        self.N = N #int Variable, the number of max the user choose
+        self.lastMax = 0 #int Variable, saves the last max that was opened
+        self.countMax = 0 #int Variable, counts the maxs envelopes
 
+    
+    def perform_strategy(self, envelope):
+        envelope.used = True
+        
+        if (self.lastMax < envelope.money):
+            self.lastMax = envelope.money
+            self.countMax += 1
+            if(self.countMax == self.N):
+                self.continue_strategy = False
+                self.chosen_envelope = envelope
+        self.count += 1
+
+    def display(self):
+        print("N max strategy- gets num of max N as an argument and choose the N max envelope")
+    """Prints out an explaination about the method"""

@@ -50,7 +50,7 @@ class BaseStrategy ():
 
 
 class N_max_strategy(BaseStrategy):
-    def __init__(self, envelope_arr, N):
+    def __init__(self, envelope_arr, N = 3):
         super().__init__(envelope_arr)
         self.N = N #int Variable, the number of max the user choose
         self.lastMax = 0 #int Variable, saves the last max that was opened
@@ -68,6 +68,9 @@ class N_max_strategy(BaseStrategy):
                 self.chosen_envelope = envelope
         self.count += 1
 
+    def display(self):
+        print("N max strategy- gets num of max N as an argument and choose the N max envelope")
+    """Prints out an explaination about the method"""
 
 
 e1 = Envelope(1)
