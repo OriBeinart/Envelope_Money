@@ -40,12 +40,12 @@ class BaseStrategy ():
 
 class Automatic_BaseStrategy(BaseStrategy):
     def __init__(self, enevelope_arr):
-        super().__init__(envelope_arr)
+        super().__init__(envelope_arr) #inherits the __init__ function from the BaseStrategy
         
     def perform_strategy(self, envelope):
-        chosen_enevelope = self.enevelopes[random.radiant(100)]
-        envelope.used = True
-        self.continue_strategy = False
+        envelope.used = True #states that the envelope was opened
+        chosen_enevelope = self.enevelopes[random.radiant(100)] #chooses a random envelope from the array
+        self.continue_strategy = False #informs that the strategy shouldn't be continued
 
     def display(self):
         print("automatic strategy- chooses a random envelope")
