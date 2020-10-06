@@ -6,3 +6,4 @@ class Envelope():
     """Defines the values of Envelopes's properties.
         """
 
+        

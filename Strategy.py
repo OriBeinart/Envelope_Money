@@ -38,6 +38,19 @@ class BaseStrategy ():
         print("Base strategy - you open the envelopes one after the other and stop whenever you feel like it")
     """Prints out an explaination about the method"""
 
+class Automatic_BaseStrategy(BaseStrategy):
+    def __init__(self, enevelope_arr):
+        super().__init__(envelope_arr)
+        
+    def perform_strategy(self, envelope):
+        chosen_enevelope = self.enevelopes[random.radiant(100)]
+        envelope.used = True
+        self.continue_strategy = False
+
+    def display(self):
+        print("automatic strategy- chooses a random envelope")
+    """Prints out an explaination about the method"""
+
 class N_max_strategy(BaseStrategy):
     def __init__(self, envelope_arr, N = 3):
         super().__init__(envelope_arr)
