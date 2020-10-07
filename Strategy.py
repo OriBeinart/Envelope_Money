@@ -50,6 +50,31 @@ class Automatic_BaseStrategy(BaseStrategy):
     def display(self):
         print("automatic strategy- chooses a random envelope")
     """Prints out an explaination about the method"""
+    
+class More_then_N_percent_group_strategy(BaseStrategy):
+    def __init__(self, envelope_arr, percent):
+        super().__init__(envelope_arr)
+        self.percent = percent
+        self.Maxmoney = 0
+
+    def perform_strategy(self, envelope):
+        envelope.used = True
+        if self.count < self.percent * 100:
+            if envelope.money > self.Maxmoney:
+                self.Maxmoney = envelope.money
+            self.count += 1
+        else:
+            if envelope.money > self.Maxmoney:
+                self.continue_strategy = False
+                self.chosen_envelope = envelope
+
+    def display(self):
+        return("More_then_N_percent_group_strategy- Opening X% of the envelopes and searching for the envelope"
+              " with maximum money. Then in the remaining envelopes look for the first envelope with a sum of money"
+              " higher than the maximum")
+
+    """Short description of class strategy
+    :return: string that describe the class purpose"""
 
 class N_max_strategy(BaseStrategy):
     def __init__(self, envelope_arr, N = 3):
